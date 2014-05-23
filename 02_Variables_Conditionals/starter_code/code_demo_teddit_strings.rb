@@ -14,27 +14,64 @@
 ###########
 ###########
 #
-#'Welcome to Teddit! a text based news aggregator. Get today\'s news tomorrow!'
-#'Story: Man raised by wolverines, then eaten Current upvotes: 4'
+puts 'Welcome to Teddit! a text based news aggregator. Get today\'s news tomorrow!'
+puts 'Story: Man raised by wolverines, then eaten Current upvotes: 4'
+
 
 
 #Version 2 - Replace the story title and upvotes with variables.
 ###########
 ###########
+headline = "FBI doesn't like weed"
+upvotes = 10
+
+#puts headline + upvotes
+#puts "Story: " + headline + ", Current upvotes: " + upvotes
 
 
 
 #Version 3 - Add data type casting (fix casting issue).
 ###########
 ###########
+puts headline + upvotes.to_s
+puts "Story: " + headline + ", Current upvotes: " + upvotes.to_s
 
 
 
 #Version 4 - Use string interpolation and escape characters, polish the output.
 ###########
 ###########
+puts "Story: " + headline + "\nCurrent upvotes:\t" + upvotes.to_s
+puts "Story: #{headline} \nCurrent upvotes:\t#{upvotes.to_s} \n\n\n"
+
 
 
 #Version 5 - Adding methods
 ###########
 ###########
+def print_welcome
+	puts 'Welcome to Teddit! a text based news aggregator. Get today\'s news tomorrow!'
+end
+
+def headline
+	"FBI doesn't like weed"
+end
+
+def story_stats(story, upvotes)
+	formatted_story = puts "\nStory: #{story.capitalize} \nCurrent upvotes:\t#{upvotes}"
+end
+
+print_welcome
+puts story_stats(headline, 2)
+
+def get_upvotes
+	puts "How many upvotes do you want to give this story? (1-10)"
+	gets
+end
+
+puts "Story: #{headline}"
+
+upvotes = get_upvotes
+puts story_stats(headline, upvotes)
+
+
