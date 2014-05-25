@@ -36,3 +36,142 @@
 #
 ###############################################################################
 
+# METHODS <<<<<
+
+# Intro
+def intro
+	puts "\nHello, welcome to Secret Number, created by Jonathan Wang."
+end
+
+# Asks for the player's name
+def get_name
+	puts "What is your name?"
+	gets
+end
+
+# Greets user with name
+def hello_user(name)
+	puts "\nHi #{name}! It\'s nice to meet you."
+end
+
+# Rules
+def rules
+	puts "\nOkay, let's go over the rules:"
+	puts "\t1) You will have 3 tries to guess the Secret Number."
+	puts "\t2) The number will be between 1-10."
+	puts "\t3) I will give you clues along the way."
+	puts "\t4) And remember to relax and have fun!... It's just a game."
+end
+
+# Asks user for the first guess
+def first_guess
+	puts "\nSo, what do you think the number is?"
+	gets
+end
+
+# Evaluates user's guess
+# If user guesses the right number, the user gets congratulated and the game ends
+# If user doesn't guess the right number, the user gets nudged towards the right direction until guesses run out
+def eval_num(secret_num, guess, tries)
+	if guess == secret_num
+		congrats(secret_num, tries)
+	elsif tries >= 3
+		puts "\nSorry that was your last try. Better luck next time!"
+	else
+		if guess > 10
+			puts "\nWhoa whoa whoa.. your guess is way too large! Remember it's a number from 1-10."
+			try_again(secret_num, tries)
+		elsif guess < 1
+			puts "\nOkay.. let me jog your memory.. Remember it's a number from 1-10."
+			try_again(secret_num, tries)
+		else
+			if guess > secret_num
+				puts "\nA little lower.. Almost there."
+				try_again(secret_num, tries)
+			elsif guess < secret_num
+				puts "\nA little higher.. You got this."
+				try_again(secret_num, tries)
+			end
+		end
+	end
+end
+
+# Congrats message; Variable depending on which try the user guesses the right number on
+def congrats(secret_num, tries)
+	if tries == 1
+		puts "\nCongrats! You must be a genius! You got it on the first try."
+	elsif tries == 2
+		puts "\nAin't it your lucky day. The number is #{secret_num} indeed!"
+	else
+		puts "\nWhew. You got it on your last try. Give your self a pat on the back."
+	end
+end
+
+# Try again; Asks for a new guess and evaluates number
+def try_again(secret_num, tries)
+	guess = new_guess(tries).to_i
+	tries = tries + 1 					
+	eval_num(secret_num, guess, tries)
+end
+
+# New Guess; Asks for a new guess and lets user know the number of tries left
+def new_guess(tries)
+	puts "You have #{3-tries} more tries:"
+	gets
+end
+
+# Asks user if they want to play again
+def play_again_Q
+	puts "\nDo you want to play again? (Y/N)"
+	choice = gets.strip
+	confirm_YN(choice)
+end
+
+# Confirm choice (Yes or No) 
+# In case user doesn't type Y or N, prompts user to type Y or N until either of the choices are made
+def confirm_YN(choice)
+	if choice == "Y" or choice == "N"
+		choice
+	else
+		puts "Please type Y or N"
+		choice = gets.strip
+		confirm_YN(choice)
+	end
+end
+
+# Asks user if they want to play again
+# Exits if player says No 
+# If the player says Yes, runs game and repeats until player is done
+def play_again(name)
+	play_choice = play_again_Q
+	if play_choice == "Y"
+		puts "\nHigh five, #{name}! Don't you just love this game?"
+		secret_num = rand(10)
+		guess = first_guess.to_i
+		tries = 1
+		eval_num(secret_num, guess, tries)
+		play_again(name)
+	elsif play_choice == "N"
+		puts "\nThank you for playing #{name}! Come test your mind again when you're bored."
+	end
+end
+
+
+
+
+# PROGRAM CODE <<<<<
+
+intro
+name = get_name.strip
+
+hello_user(name)
+
+rules
+
+secret_num = rand(10) #Sets the secret number
+guess_1 = first_guess.to_i
+tries = 1
+eval_num(secret_num, guess_1, tries) 
+
+play_again(name)
+
