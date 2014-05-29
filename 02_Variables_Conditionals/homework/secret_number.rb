@@ -80,19 +80,16 @@ def eval_num(secret_num, guess, tries)
 	else
 		if guess > 10
 			puts "\nWhoa whoa whoa.. your guess is way too large! Remember it's a number from 1-10."
-			try_again(secret_num, tries)
 		elsif guess < 1
 			puts "\nOkay.. let me jog your memory.. Remember it's a number from 1-10."
-			try_again(secret_num, tries)
 		else
 			if guess > secret_num
 				puts "\nA little lower.. Almost there."
-				try_again(secret_num, tries)
 			elsif guess < secret_num
 				puts "\nA little higher.. You got this."
-				try_again(secret_num, tries)
 			end
 		end
+		try_again(secret_num, tries)
 	end
 end
 
@@ -146,7 +143,7 @@ def play_again(name)
 	play_choice = play_again_Q
 	if play_choice == "Y"
 		puts "\nHigh five, #{name}! Don't you just love this game?"
-		secret_num = rand(10)
+		secret_num = rand(10) + 1
 		guess = first_guess.to_i
 		tries = 1
 		eval_num(secret_num, guess, tries)
@@ -163,12 +160,13 @@ end
 
 intro
 name = get_name.strip
+name = name.capitalize
 
 hello_user(name)
 
 rules
 
-secret_num = rand(10) #Sets the secret number
+secret_num = rand(10) + 1 #Sets the secret number
 guess_1 = first_guess.to_i
 tries = 1
 eval_num(secret_num, guess_1, tries) 
