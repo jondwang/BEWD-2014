@@ -68,8 +68,8 @@ apt_count = gets.to_i
   apartment = create_apartment
   building.apartments[unit] = apartment
 
-  puts "Apartment added successfully \n #{apartment}"
-
+  puts "Apartment added successfully \n#{apartment}"
+  
   puts "Is unit #{apartment.name} rented? (y)es (n)o"
   unit_rented = gets.strip
 
@@ -83,11 +83,13 @@ apt_count = gets.to_i
   end
 end
 
-puts "What would you like to do next, (v)iew all apartments? (q)uit?"
+puts "What would you like to do next, (v)iew all apartments? show (r)enters? (q)uit?"
 response = gets.strip
 
 if response == 'v'
   building.view_apartments
+elsif response == 'r'
+  building.view_renters
 else
   puts "Thanks for using Ruby Building Manager"
 end

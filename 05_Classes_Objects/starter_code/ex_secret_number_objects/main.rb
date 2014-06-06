@@ -41,10 +41,53 @@
 # Tips: Copy paste your code from homework 1 where necessary.
 
 $:.unshift (File.dirname(__FILE__))
-require 'lib/game'
+require_relative 'lib/game'
+require_relative 'lib/person'
 
 # put code here print a welcome message for your user
+	def welcome
+		puts "\nHello, welcome to Secret Number, created by Jonathan Wang."
+	end
 
 # put code here ask the user for their name, and save it
+	def new_player
+		puts "\nWhat is your name?"
+		name = gets.strip
+		Person.new(name)
+	end
+
+# New game
+	def new_game(player)
+		Game.new(player)
+		player.games_played += 1
+	end
+
+# Asks user if they want to play again
+	def play_again?
+		puts "\nDo you want to play again? (Y/N)"
+		choice = gets.strip
+		while choice != "Y" && choice != "N"
+			puts "Please type Y or N"
+			choice = gets.strip
+		end
+		choice
+	end
+
 
 # put code here to create a new game, and start it
+
+welcome
+
+player = new_player
+
+new_game(player)
+choice = play_again?
+
+while choice == "Y"
+	puts "\nHigh five, #{player}! Don't you just love this game?"
+	new_game(player)
+	choice = play_again?
+end
+
+puts "\nThank you for playing #{player}! You played #{player.games_played} games. \nCome test your mind again when you're bored.\n\n"
+
