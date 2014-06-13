@@ -2,7 +2,11 @@
 
 #BEWD - Classes and Objects
 
+<<<<<<< HEAD
 ###Instructor Name
+=======
+###Mari Miyachi
+>>>>>>> cf3810355b967ac7c0810b6d9218d84a4d4f7cbc
 
 ---
 
@@ -44,6 +48,10 @@ What are some pros and cons of using hashes?
 
 *	Adding variables to a class
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> cf3810355b967ac7c0810b6d9218d84a4d4f7cbc
 		# Hashes
 		story = {}
 		story[:title] = "Sand angry with flip-flops"
@@ -68,6 +76,10 @@ What are some pros and cons of using hashes?
 
 *	Adding methods to our class
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> cf3810355b967ac7c0810b6d9218d84a4d4f7cbc
 		class Story
 			attr_accessor :title, :category, :upvotes
 			def upvote!
@@ -75,11 +87,19 @@ What are some pros and cons of using hashes?
 			end
 		end
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> cf3810355b967ac7c0810b6d9218d84a4d4f7cbc
 		story = Story.new
 		story.title = "Fruit Flies find fleas facetious"
 		story.category = "Turf War"
 		story.upvotes = 1
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> cf3810355b967ac7c0810b6d9218d84a4d4f7cbc
 		story.upvote!
 		story.upvotes #=> 2
 ---
@@ -98,12 +118,20 @@ What are some pros and cons of using hashes?
 *	to_s method called automatically on objects interpolated in a string (e.g. with puts)
 *	to_s can be overridden:
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> cf3810355b967ac7c0810b6d9218d84a4d4f7cbc
 		class My_Class
 			def to_s
 				"The puts method was called."
 			end
 		end
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> cf3810355b967ac7c0810b6d9218d84a4d4f7cbc
 		>> my_object = My_Class.new
 		>> puts my_object
 		The puts method was called.
@@ -207,6 +235,11 @@ __Create A Class__
 	end
 ```
 
+<<<<<<< HEAD
+=======
+---
+
+>>>>>>> cf3810355b967ac7c0810b6d9218d84a4d4f7cbc
 __Creating Objects__
 
 ```ruby
@@ -230,6 +263,10 @@ __Creating Objects__
 
 >GA has a course on UXD
 
+<<<<<<< HEAD
+=======
+---
+>>>>>>> cf3810355b967ac7c0810b6d9218d84a4d4f7cbc
 
 __Variable Scope__
 
@@ -242,6 +279,11 @@ __Variable Scope__
 | Global   | $name  | Same shared value for all code running within a single Ruby program.|
 
 
+<<<<<<< HEAD
+=======
+---
+
+>>>>>>> cf3810355b967ac7c0810b6d9218d84a4d4f7cbc
 ###Still Feel Lost?
 ####Catch Up With These Resources
 
